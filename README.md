@@ -3,7 +3,7 @@ This repository contains a python implementation of the **LinAR** interpolation 
 
 For a detailed description of the **LinAR** interpolation method and its use, see:
 
-Niedzielski, T., and Halicki, M., **2023**. Can integrated autoregressive modelling improve linear interpolation of missing hydrological data? **Water Resources Management** XXX, XXX. doi: XXX.
+Niedzielski, T., and Halicki, M., **2023**. Can integrated autoregressive modelling improve linear interpolation of missing hydrological data? **Water Resources Management** XXX, XXX. doi: XXX. [publication in progress].
 
 
 # Content
@@ -36,7 +36,7 @@ The **LinAR** method can be used by running the `LinAR_executor.py` file. There 
 - _learn_len_ - The size of the train data for the autoregression (selected in a moving window, before each gap). The default is set to 100.
 - _max_lags_ - The maximum number of autoregressive lags included in the model. The default is set to 10.
 - _max_linear_ - The maximum gap size to be linearly interpolated. The default value is set to 72.
-- _max_linar_ - The maximum gap size to be linearly interpolated. The recommended value is set to 72. Further explanations can be found in **Niedzielski and Halicki (2023)**.
+- _max_linar_ - The maximum gap size to be linearly interpolated. The recommended value is set to 12. Further explanations can be found in **Niedzielski and Halicki (2023)**.
 - _sig_adf_ - The signigicance level for the ADF test. The default is set to 0.05.
 - _sig_ft_ - The signigicance level for the F test. The default is set to 0.05.
 - _number_of_diffs_ - The number of differencings allowed to obtain stationary data. The default value is set to 2.
