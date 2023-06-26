@@ -3,7 +3,7 @@ This repository contains a python implementation of the **LinAR** interpolation 
 
 For a detailed description of the **LinAR** interpolation method and its use, see:
 
-Niedzielski, T., and Halicki, M., **2023**. Can integrated autoregressive modelling improve linear interpolation of missing hydrological data? **Water Resources Management** XXX, XXX. doi: XXX. [publication in progress].
+Niedzielski, T., and Halicki, M. Can integrated autoregressive modelling improve linear interpolation of missing hydrological data? [Submitted].
 
 
 # Content
@@ -48,7 +48,7 @@ These variables can be declared interactively, by following the instructions dis
 # LICENSE
 
 When using this method please cite the following article:
-"Niedzielski, T., and Halicki, M., 2023. Can integrated autoregressive modelling improve linear interpolation of missing hydrological data? Water Resources Management XXX, XXX. doi: XXX."
+Niedzielski, T., and Halicki, M. Can integrated autoregressive modelling improve linear interpolation of missing hydrological data? [Submitted].
 
 
 MIT License
