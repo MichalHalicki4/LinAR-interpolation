@@ -266,6 +266,8 @@ def interpolate_linar(timeseries, col_id: str, learn_len: int, max_lags: int, ma
     itpd = tseries.copy()
 
     for ng in nan_groups:
+        if ng[0] == itpd.index[0] or ng[-1] == itpd.index[-1]:
+            continue
         if len(ng) > max_linear:
             continue
         elif len(ng) > max_linar:
