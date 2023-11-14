@@ -19,24 +19,13 @@ def convert_to_series(timeseries: Union[pd.Series, pd.DataFrame], col_id: str = 
         return timeseries[col_id]
 
 
-def add_freq(idx):
-    """Add a frequency attribute to idx, through inference or directly.
-    Returns a copy.  If `freq` is None, it is inferred.
-    :param idx: the index of pd.Series
-    :return: the index with a set frequency
+def resample_timeseries(ts):
+    """ Reads the most frequent time step and resamples the dataframe.
+    :param ts: timeseries to be resampled.
+    :return: resampled timeseries
     """
-    idx = idx.copy()
-    if idx.freq is None:
-        freq = pd.infer_freq(idx)
-    else:
-        return idx
-    idx.freq = pd.tseries.frequencies.to_offset(freq)
-    if idx.freq is None:
-        raise AttributeError('no discernible frequency found to `idx`.  Specify'
-                             ' a frequency string with `freq`.')
-        # freq = np.diff(idx).min()
-    # idx.freq = pd.tseries.frequencies.to_offset(freq)
-    return idx
+    typical_freq = pd.to_timedelta(np.diff(ts.index)).value_counts().index[0]
+    return ts.resample(typical_freq).fillna(method=None)
 
 
 def group_nans(timeseries: pd.Series, step: timedelta):
@@ -260,7 +249,7 @@ def interpolate_linar(timeseries, col_id: str, learn_len: int, max_lags: int, ma
     :return: The interpolated time series.
     """
     tseries = convert_to_series(timeseries, col_id)
-    tseries.index = add_freq(tseries.index)
+    tseries = resample_timeseries(tseries)
     stp = tseries.index.freq
     nan_groups = group_nans(tseries, stp)
     itpd = tseries.copy()
